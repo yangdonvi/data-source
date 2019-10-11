@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ncwu.datasource.dao.ReaderNumDao">
+    <insert id="insert" parameterType="com.ncwu.datasource.calc.entity.ReaderNum" >
+        insert into reader_num (depart_name,department_num,major_num,worker_num,school_num)
+        VALUES (#{departName},#{departmentNum},#{majorNum},#{workerNum},#{schoolNum})
+    </insert>
+
+    <select id="selectAll" resultType="com.ncwu.datasource.calc.entity.ReaderNum">
+        SELECT *
+        FROM reader_num
+    </select>
+
+</mapper>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ncwu.datasource.calc.dao.BookWorthDao">
+    <insert id="insertBookWorth" parameterType="com.ncwu.datasource.calc.entity.BookWorth" >
+        insert into book_worth (depart_name,sort_num,book_name,total_num,
+        begin_date,end_date)
+        VALUES (#{departName,jdbcType=VARCHAR},#{sortNum,jdbcType=INTEGER},#{bookName,jdbcType=VARCHAR},
+        #{totalNum,jdbcType=INTEGER},#{beginDate,jdbcType=VARCHAR},#{endDate,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="selectBookWorth" parameterType="java.lang.String" resultType="com.ncwu.datasource.calc.entity.BookWorth">
+        SELECT *
+        FROM book_worth WHERE begin_date = #{beginDate} and end_date = #{endDate}
+    </select>
+
+</mapper>

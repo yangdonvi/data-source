@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ncwu.datasource.dao.BorrowRecordDao">
+
+    <select id="selectById" parameterType="java.lang.Integer" resultType="com.ncwu.datasource.entity.BorrowRecord">
+        SELECT *
+        FROM borrow_record WHERE id = #{id}
+    </select>
+
+    <select id="selectAllRecord" resultType="com.ncwu.datasource.entity.BorrowRecord">
+        SELECT * FROM borrow_record
+    </select>
+
+    <insert id="insertBorrowRecordBuild" parameterType="com.ncwu.datasource.entity.BorrowRecordBuild" >
+        insert into BORROW_RECORD_BUILD (READER_ID,READER_NAME,BAR_CODE,
+        BOOK_NAME,LENT_TIME,LIMIT_RETURN_TIME,
+        RENEW_TIMES,CIRCULATE_TYPE,BOOK_TYPE,
+        BOOK_ADDRESS,ACTOR,RETURN_ACTOR,FIND_NUMBER,
+        AUTHOR,VERSION,PRESS,PUBLIC_TIME,PAGES,PRICE,
+        LANGUAGE_TYPE,SEX,DEPARTMENT,MAJOR,GRADE)
+        VALUES (#{readerId,jdbcType=VARCHAR},#{readerName,jdbcType=VARCHAR},#{barCode,jdbcType=VARCHAR},#{bookName,jdbcType=VARCHAR},
+        #{lentTime,jdbcType=DATE},#{limitReturnTime,jdbcType=DATE},#{renewTimes,jdbcType=INTEGER},#{circulateType,jdbcType=VARCHAR},
+        #{bookType,jdbcType=VARCHAR},#{bookAddress,jdbcType=VARCHAR},#{actor,jdbcType=VARCHAR},#{returnActor,jdbcType=VARCHAR},
+        #{findNumber,jdbcType=VARCHAR},#{author,jdbcType=VARCHAR},#{version,jdbcType=VARCHAR},#{press,jdbcType=VARCHAR},
+        #{publicTime,jdbcType=VARCHAR},#{pages,jdbcType=VARCHAR},#{price,jdbcType=DOUBLE},#{languageType,jdbcType=VARCHAR},
+        #{sex,jdbcType=INTEGER},#{department,jdbcType=VARCHAR},#{major,jdbcType=VARCHAR},#{grade,jdbcType=INTEGER})
+    </insert>
+
+</mapper>

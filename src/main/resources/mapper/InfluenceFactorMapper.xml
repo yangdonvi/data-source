@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ncwu.datasource.calc.dao.InfluenceFactorDao">
+    <insert id="insertInfluenceFactor" parameterType="com.ncwu.datasource.calc.entity.InfluenceFactor" >
+        insert into influence_factor (month,total_num,grade,book_name,sort_num,begin_date,end_date)
+        VALUES (#{month},#{totalNum},#{grade},#{bookName},#{sortNum},#{beginDate},#{endDate})
+    </insert>
+
+    <select id="selectInfluenceFactor" resultType="com.ncwu.datasource.calc.entity.InfluenceFactor">
+        SELECT *
+        FROM influence_factor where begin_date is null and end_date is null
+    </select>
+
+    <select id="getGradeTopFive" parameterType="java.lang.String" resultType="com.ncwu.datasource.calc.entity.InfluenceFactor">
+        SELECT *
+        FROM influence_factor WHERE begin_date = #{beginDate} and end_date = #{endDate}
+    </select>
+
+</mapper>

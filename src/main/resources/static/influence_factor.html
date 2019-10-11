@@ -1,0 +1,326 @@
+<!DOCTYPE HTML>
+<html xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<head>
+	<title>Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta name="keywords" content=""/>
+	<script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+	</script>
+
+	<!-- Bootstrap Core CSS -->
+	<link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+
+	<!-- Custom CSS -->
+	<link href="css/style.css" rel='stylesheet' type='text/css'/>
+
+	<!-- font-awesome icons CSS -->
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<!-- //font-awesome icons CSS-->
+
+	<link type="text/css" rel="stylesheet" href="css/jeDate-test.css">
+	<link type="text/css" rel="stylesheet" href="css/jedate.css">
+	<script type="text/javascript" src="js/jedate.js"></script>
+
+	<!-- side nav css file -->
+	<link href='css/SidebarNav.min.css' media='all' rel='stylesheet' type='text/css'/>
+	<!-- //side nav css file -->
+
+	<!-- js-->
+	<script src="js/jquery-1.11.1.min.js"></script>
+	<script src="js/modernizr.custom.js"></script>
+	<script src="js/vue.js"></script>
+	<script src="js/echarts.min.js"></script>
+
+	<!--webfonts-->
+	<link href="http://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i&amp;subset=cyrillic,cyrillic-ext,latin-ext"
+		  rel="stylesheet">
+	<!--//webfonts-->
+
+	<!-- chart -->
+	<script src="js/Chart.js"></script>
+	<!-- //chart -->
+
+	<!-- Metis Menu -->
+	<script src="js/metisMenu.min.js"></script>
+	<script src="js/custom.js"></script>
+	<link href="css/custom.css" rel="stylesheet">
+	<!--//Metis Menu -->
+	<style>
+		#chartdiv {
+			width: 100%;
+			height: 295px;
+		}
+	</style>
+
+	<!-- //pie-chart -->
+	<!-- index page sales reviews visitors pie chart -->
+
+	<!-- requried-jsfiles-for owl -->
+	<link href="css/owl.carousel.css" rel="stylesheet">
+	<script src="js/owl.carousel.js"></script>
+
+	<!-- //requried-jsfiles-for owl -->
+</head>
+
+<body class="cbp-spmenu-push">
+<div class="main-content">
+	<div class="cbp-spmenu cbp-spmenu-vertical cbp-spmenu-left" id="cbp-spmenu-s1">
+		<!--left-fixed -navigation-->
+		<aside class="sidebar-left">
+			<nav class="navbar navbar-inverse">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".collapse"
+							aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<h1><a class="navbar-brand" href="index.html"><span class="fa fa-area-chart"></span>功能列表<span
+							class="dashboard_text"></span></a></h1>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="sidebar-menu">
+						<li class="header">导航菜单</li>
+						<li class="treeview">
+							<a href="index.html">
+								<i class="fa fa-dashboard"></i> <span>基础数据</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="book_worth.html">
+								<i class="fa fa-dashboard"></i> <span>图书价值</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="attendance.html">
+								<i class="fa fa-dashboard"></i> <span>出勤率</span>
+							</a>
+						</li>
+						<li class="treeview">
+							<a href="influence_factor.html">
+								<i class="fa fa-dashboard"></i> <span>影响因素</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</nav>
+		</aside>
+	</div>
+	<!--left-fixed -navigation-->
+
+	<!-- header-starts -->
+	<div class="sticky-header header-section ">
+		<div class="header-left">
+			<!--toggle button start-->
+			<button id="showLeftPush"><i class="fa fa-bars"></i></button>
+			<!--toggle button end-->
+			<div style="text-align: center;">
+				<font size="6">欢 迎 使 用 图 书 馆 读 者 行 为 分 析 系 统</font>
+			</div>
+			<!--notification menu end -->
+			<div class="clearfix"></div>
+		</div>
+
+		<div class="clearfix"></div>
+	</div>
+	<!-- //header-ends -->
+	<!-- main content start-->
+	<div id="page-wrapper">
+		<div class="main-page">
+			<div class="elements">
+
+
+				<div class="chit-chat-layer1">
+					<div class="col-md-6 chit-chat-layer1-left">
+						<div style="height: 800px" class="work-progres">
+							<header class="widget-header">
+								<h4 class="widget-title">借书数量变化趋势</h4>
+							</header>
+							<hr class="widget-separator">
+							<div class="jeitem">
+								<label style="text-align: left;" class="jelabel">开始日期：</label>
+								<div class="jeinpbox"><input type="text" class="jeinput" id="inpstart1"
+															 placeholder="2018-01" readonly></div>
+							</div>
+							<div class="jeitem">
+								<label style="text-align: left;" class="jelabel">结束日期：</label>
+								<div class="jeinpbox"><input type="text" class="jeinput" id="inpend1"
+															 placeholder="2018-12" readonly></div>
+							</div>
+							<div>
+								<input style="margin-top: 40px;" type="image" src="images/subimg.png" class="submit"
+									   onclick="toGetMonthNum()"/>
+							</div>
+							<div style="height:600px;" id="getMonthNum">
+								<!--各语种图书外借册数直方图-->
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 chit-chat-layer1-rit">
+						<div class="geo-chart">
+							<section style="height: 720px" id="charts1" class="charts">
+								<div class="wrapper-flex">
+									<div class="col geo_main">
+										<h3 id="geoChartTitle">大一至大四兴趣变化</h3>
+									</div>
+									<hr class="widget-separator">
+									<div class="jeitem">
+										<label style="text-align: left;" class="jelabel">开始日期：</label>
+										<div class="jeinpbox"><input type="text" class="jeinput" id="inpstart2"
+																	 placeholder="2018-01-01" readonly></div>
+									</div>
+									<div class="jeitem">
+										<label style="text-align: left;" class="jelabel">结束日期：</label>
+										<div class="jeinpbox"><input type="text" class="jeinput" id="inpend2"
+																	 placeholder="2018-12-31" readonly></div>
+									</div>
+									<div>
+										<input style="margin-top: 40px;" type="image" src="images/subimg.png"
+											   class="submit"
+											   onclick="toGetGradeTopFive()"/>
+									</div>
+									<div style="height:600px;" id="getGradeTopFive">
+										<!--各分馆图书外借册数直方图-->
+									</div>
+								</div><!-- .wrapper-flex -->
+							</section>
+						</div>
+
+					</div>
+					<div class="clearfix"></div>
+				</div>
+
+				<!-- //mainpage-chit -->
+
+				<!-- for amcharts js -->
+				<script src="js/amcharts.js"></script>
+				<script src="js/serial.js"></script>
+				<script src="js/export.min.js"></script>
+				<link rel="stylesheet" href="css/export.css" type="text/css" media="all"/>
+				<script src="js/light.js"></script>
+				<!-- for amcharts js -->
+
+				<script src="js/index1.js"></script>
+
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Classie -->
+	<!-- for toggle left push menu script -->
+	<script src="js/classie.js"></script>
+	<script>
+        var menuLeft = document.getElementById('cbp-spmenu-s1'),
+            showLeftPush = document.getElementById('showLeftPush'),
+            body = document.body;
+
+        showLeftPush.onclick = function () {
+            classie.toggle(this, 'active');
+            classie.toggle(body, 'cbp-spmenu-push-toright');
+            classie.toggle(menuLeft, 'cbp-spmenu-open');
+            disableOther('showLeftPush');
+        };
+
+        function disableOther(button) {
+            if (button !== 'showLeftPush') {
+                classie.toggle(showLeftPush, 'disabled');
+            }
+        }
+	</script>
+
+	<!-- //for index page weekly sales java script -->
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.js">
+	</script>
+	<script src="js/influence_factor_use.js"></script>
+	<!-- //Bootstrap Core JavaScript -->
+	<script type="text/javascript">
+        var start = {},
+            end = {};
+        jeDate('#inpstart1', {
+            format: 'YYYY-MM',
+            minDate: '2014-06', //设定最小日期为当前日期
+            maxDate: function (that) {
+                //that 指向实例对象
+                return jeDate.valText(that.valCell) == "" ? jeDate.nowDate({
+                    DD: 0
+                }) : start.maxDate;
+            }, //设定最大日期为当前日期
+            donefun: function (obj) {
+                end.minDate = obj.val; //开始日选好后，重置结束日的最小日期
+                jeDate("#inpend1", LinkageEndDate(false));
+            }
+        });
+        jeDate('#inpend1', LinkageEndDate);
+
+        function LinkageEndDate(istg) {
+            return {
+                trigger: istg || "click",
+                format: 'YYYY-MM',
+                minDate: function (that) {
+                    //that 指向实例对象
+                    var nowMinDate = jeDate.valText('#inpstart1') == "" && jeDate.valText(that.valCell) == "";
+                    return nowMinDate ? jeDate.nowDate({
+                        DD: 0
+                    }) : end.minDate;
+                }, //设定最小日期为当前日期
+                maxDate: '2099-06', //设定最大日期为当前日期
+                donefun: function (obj) {
+                    start.maxDate = obj.val; //将结束日的初始值设定为开始日的最大日期
+                }
+            };
+        }
+	</script>
+	<script type="text/javascript">
+        var start = {},
+            end = {};
+        jeDate('#inpstart2', {
+            format: 'YYYY-MM-DD',
+            minDate: '2014-06-16', //设定最小日期为当前日期
+            maxDate: function (that) {
+                //that 指向实例对象
+                return jeDate.valText(that.valCell) == "" ? jeDate.nowDate({
+                    DD: 0
+                }) : start.maxDate;
+            }, //设定最大日期为当前日期
+            donefun: function (obj) {
+                end.minDate = obj.val; //开始日选好后，重置结束日的最小日期
+                jeDate("#inpend2", LinkageEndDate(false));
+            }
+        });
+        jeDate('#inpend2', LinkageEndDate);
+
+        function LinkageEndDate(istg) {
+            return {
+                trigger: istg || "click",
+                format: 'YYYY-MM-DD',
+                minDate: function (that) {
+                    //that 指向实例对象
+                    var nowMinDate = jeDate.valText('#inpstart2') == "" && jeDate.valText(that.valCell) == "";
+                    return nowMinDate ? jeDate.nowDate({
+                        DD: 0
+                    }) : end.minDate;
+                }, //设定最小日期为当前日期
+                maxDate: '2099-06-16', //设定最大日期为当前日期
+                donefun: function (obj) {
+                    start.maxDate = obj.val; //将结束日的初始值设定为开始日的最大日期
+                }
+            };
+        }
+	</script>
+</body>
+
+</html>

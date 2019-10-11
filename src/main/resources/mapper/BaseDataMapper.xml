@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.ncwu.datasource.calc.dao.BaseDataDao">
+    <insert id="insertBaseData" parameterType="com.ncwu.datasource.calc.entity.BaseData" >
+        insert into base_data (total_out_book_num,language_type,language_num,
+        campus_name,campus_out_book_num,avg_lend_num,begin_date,end_date)
+        VALUES (#{totalOutBookNum,jdbcType=INTEGER},#{languageType,jdbcType=VARCHAR},
+        #{languageNum,jdbcType=INTEGER},#{campusName,jdbcType=INTEGER},
+        #{campusOutBookNum,jdbcType=INTEGER},#{avgLendNum,jdbcType=DOUBLE},
+        #{beginDate,jdbcType=VARCHAR},#{endDate,jdbcType=VARCHAR})
+    </insert>
+
+    <select id="selectBaseData" parameterType="java.lang.String" resultType="com.ncwu.datasource.calc.entity.BaseData">
+        SELECT *
+        FROM base_data WHERE begin_date = #{beginDate} and end_date = #{endDate}
+    </select>
+
+</mapper>
